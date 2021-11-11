@@ -6,7 +6,7 @@
 /*   By: nino <nino@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/22 10:41:17 by nino              #+#    #+#             */
-/*   Updated: 2021/09/01 13:10:45 by nino             ###   ########.fr       */
+/*   Updated: 2021/11/09 19:03:10 by nino             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 # define GET_NEXT_LINE_H
 
 # include <stdlib.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1
+# endif
 
 void	*ft_calloc(int i);
 char	*get_next_line(int fd);
