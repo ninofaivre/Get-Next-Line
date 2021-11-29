@@ -6,7 +6,7 @@
 #    By: nino <nino@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/10 17:09:05 by nino              #+#    #+#              #
-#    Updated: 2021/11/11 16:51:41 by nino             ###   ########.fr        #
+#    Updated: 2021/11/18 20:33:34 by nino             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ DIR_OBJ ?= .obj
 
 INCLUDE = -Iinclude
 
-SRC = $(wildcard src/*.c)
+SRC = $(wildcard $(DIR_SRC)/*.c)
 OBJ = $(addprefix $(DIR_OBJ)/, $(subst src/,, $(SRC:.c=.o)))
 
 $(DIR_OBJ)/%.o : $(DIR_SRC)/%.c ./include/get_next_line.h
