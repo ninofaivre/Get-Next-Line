@@ -6,7 +6,7 @@
 #    By: nfaivre <nfaivre@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/10 17:09:05 by nino              #+#    #+#              #
-#    Updated: 2021/11/30 22:44:48 by nfaivre          ###   ########.fr        #
+#    Updated: 2021/11/30 23:07:42 by nfaivre          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,14 +29,14 @@ mkdir_DIR_OBJ:
 $(DIR_OBJ)/%.o : $(DIR_SRC)/%.c ./include/get_next_line.h
 	$(CC) $(CFLAGS) -o $@ -c $< $(INCLUDE)
 
-all: mkdir_DIR_OBJ $(OBJ) $(SRC)
+all: mkdir_DIR_OBJ $(OBJ)
 
 clean:
 	rm -f $(OBJ)
 
-fclean:
+fclean: clean
 	rm -rf $(DIR_OBJ)
 
 re: fclean all
 
-.PHONY: all clean re
+.PHONY: all clean fclean re
