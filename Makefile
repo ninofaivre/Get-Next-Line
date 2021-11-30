@@ -6,7 +6,7 @@
 #    By: nfaivre <nfaivre@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/10 17:09:05 by nino              #+#    #+#              #
-#    Updated: 2021/11/30 22:08:49 by nfaivre          ###   ########.fr        #
+#    Updated: 2021/11/30 22:44:48 by nfaivre          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,6 @@ clean:
 fclean:
 	rm -rf $(DIR_OBJ)
 
-re: clean all
+re: fclean all
 
 .PHONY: all clean re
