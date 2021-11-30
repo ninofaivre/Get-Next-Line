@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nino <nino@student.42.fr>                  +#+  +:+       +#+         #
+#    By: nfaivre <nfaivre@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/10 17:09:05 by nino              #+#    #+#              #
-#    Updated: 2021/11/18 20:33:34 by nino             ###   ########.fr        #
+#    Updated: 2021/11/30 22:08:49 by nfaivre          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,17 +21,21 @@ DIR_OBJ ?= .obj
 INCLUDE = -Iinclude
 
 SRC = $(wildcard $(DIR_SRC)/*.c)
-OBJ = $(addprefix $(DIR_OBJ)/, $(subst src/,, $(SRC:.c=.o)))
+OBJ = $(addprefix $(DIR_OBJ)/, $(notdir $(SRC:.c=.o)))
+
+mkdir_DIR_OBJ:
+	mkdir -p $(DIR_OBJ)
 
 $(DIR_OBJ)/%.o : $(DIR_SRC)/%.c ./include/get_next_line.h
-	@mkdir -p $(DIR_OBJ)
 	$(CC) $(CFLAGS) -o $@ -c $< $(INCLUDE)
 
-all: $(OBJ) $(SRC)
+all: mkdir_DIR_OBJ $(OBJ) $(SRC)
 
 clean:
-	@rm -rf $(OBJ)
-	@echo "removing $(OBJ)"
+	rm -f $(OBJ)
+
+fclean:
+	rm -rf $(DIR_OBJ)
 
 re: clean all
 
